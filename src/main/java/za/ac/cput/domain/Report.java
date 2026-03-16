@@ -1,19 +1,23 @@
-import java.util.Date;
 package za.ac.cput.domain;
 
-public class Report {
-  private int reportID;
-  private String reportType;
-  private Date startDate;
+import java.util.Date;
 
-  private Report(Builder builder){
-  this.reportID = builder.reportID;
-    this.reportType = builder.reportType;
-    this.generatedDate = builder.generatedDate;
-    this.startDate = builder.startDate;
-    this.endDate = builder.endDate;
-  }
-  public int getReportID() {
+public class Report {
+    private int reportID;
+    private String reportType;
+    private Date generatedDate;
+    private Date startDate;
+    private Date endDate;
+
+    private Report(Builder builder) {
+        this.reportID = builder.reportID;
+        this.reportType = builder.reportType;
+        this.generatedDate = builder.generatedDate;
+        this.startDate = builder.startDate;
+        this.endDate = builder.endDate;
+    }
+
+    public int getReportID() {
         return reportID;
     }
 
@@ -31,8 +35,9 @@ public class Report {
 
     public Date getEndDate() {
         return endDate;
-    } 
-  public void viewReport() {
+    }
+
+    public void viewReport() {
         System.out.println("Report ID: " + reportID);
         System.out.println("Report Type: " + reportType);
         System.out.println("Generated Date: " + generatedDate);
@@ -74,4 +79,5 @@ public class Report {
         public Report build() {
             return new Report(this);
         }
+    }
 }
