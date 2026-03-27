@@ -3,6 +3,8 @@ import  za.ac.cput.entity.Trainer;
 import za.ac.cput.entity.ContactDetails;
 import za.ac.cput.entity.UserAccount;
 import za.ac.cput.entity.UserProfile;
+import za.ac.cput.util.helper;
+
 import java.util.UUID;
 
 /**
@@ -13,25 +15,22 @@ import java.util.UUID;
  */
 
 public class TrainerFactory {
-    public static Trainer createTrainer(UserAccount account, UserProfile profile, ContactDetails contact){
+    public static Trainer createTrainer(String trainerId,UserAccount account, UserProfile profile, ContactDetails contact) {
+       trainerId = UUID.randomUUID().toString();
+        if(helper.isNullOrEmpty(trainerId))
+            throw new NullPointerException("Trainer ID is required");
+        if (helper.isNullOrEmpty(String.valueOf(account)))
+            throw new NullPointerException("Account is required");
+        if (helper.isNullOrEmpty(String.valueOf(profile)))
+            throw new NullPointerException("Profile is required");
+        if (helper.isNullOrEmpty(String.valueOf(contact)))
+            throw new NullPointerException("Contact details is required");
 
-       if(account == null)
-           throw new IllegalArgumentException("UserAccount cannot be null");
-       if(profile == null)
-           throw new IllegalArgumentException("UserProfile is required");
-       if(contact == null)
-           throw new IllegalArgumentException("ContactDetails is required");
+        return new Trainer.Builder().setTrainerId(trainerId)
+                .setAccount(account)
+                .setProfile(profile)
+                .setContactDetails(contact)
+                .build();
 
-       String trainerId = generateTrainerId();
-
-       return new Trainer.Builder().setTrainerId(trainerId)
-               .setAccount(account)
-               .setProfile(profile)
-               .setContactDetails(contact)
-               .build();
-
-    }
-    private static String generateTrainerId(){
-        return UUID.randomUUID().toString().substring(0, 8);
     }
 }

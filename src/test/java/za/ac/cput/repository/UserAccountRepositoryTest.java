@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.*;
             repo.delete("ACC002");
 
             account1 = UserAccountFactory.CreateUserAccount(
-                    "ACC001", "avuyile.sitoyi@example.com", "SecurePass123",
+                    "ACC001", "avuyile.sitoyi@gmail.com", "SecurePass123",
                     RoleType.MEMBER, LocalDate.of(2024, 1, 10));
 
             account2 = UserAccountFactory.CreateUserAccount(

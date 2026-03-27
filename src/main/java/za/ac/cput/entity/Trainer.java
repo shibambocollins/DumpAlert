@@ -50,6 +50,16 @@ public class Trainer {
         this.contactDetails = contactDetails;
     }
 
+    @Override
+    public String toString() {
+        return "Trainer{" +
+                "trainerId='" + trainerId + '\'' +
+                ", account=" + account +
+                ", profile=" + profile +
+                ", contactDetails=" + contactDetails +
+                '}';
+    }
+
     public static class Builder{
         private String trainerId;
         private UserAccount account;

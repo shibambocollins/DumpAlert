@@ -1,4 +1,7 @@
 package za.ac.cput.repository;
 
-public interface TrainerRepository {
+import za.ac.cput.entity.Trainer;
+import za.ac.cput.entity.UserAccount;
+
+public interface TrainerRepository extends IRepository<Trainer,String> {
 }
