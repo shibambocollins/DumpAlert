@@ -15,7 +15,7 @@ Date: 27 March 2026
 class ContactDetailsFactoryTest {
 
     @Test
-    void createContactDetails() {
+    void testFactory() {
         ContactDetails contact = ContactDetailsFactory.createContactDetails(
                 "1",
                 "0812345678",
@@ -24,7 +24,9 @@ class ContactDetailsFactoryTest {
         );
 
         assertNotNull(contact);
-        System.out.println(contact);
+        assertEquals("1", contact.getContactId());
+        assertEquals("0812345678", contact.getCellphoneNumber());
+        assertEquals("0712345678", contact.getEmergencyContactNumber());
+        assertEquals("John", contact.getEmergencyContactName());
     }
 }
-

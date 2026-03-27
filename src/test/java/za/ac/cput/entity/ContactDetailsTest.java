@@ -13,8 +13,7 @@ Date: 27 March 2026
 class ContactDetailsTest {
 
     @Test
-    void testBuilder(){
-
+    void testBuilder() {
         ContactDetails contact = new ContactDetails.Builder()
                 .setContactId("1")
                 .setCellphoneNumber("0812345678")
@@ -23,6 +22,11 @@ class ContactDetailsTest {
                 .build();
 
         assertNotNull(contact);
+        assertEquals("1", contact.getContactId());
+        assertEquals("0812345678", contact.getCellphoneNumber());
+        assertEquals("0712345678", contact.getEmergencyContactNumber());
+        assertEquals("John", contact.getEmergencyContactName());
+
         System.out.println(contact);
     }
 }
